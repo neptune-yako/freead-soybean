@@ -55,8 +55,13 @@ const local: App.I18n.Schema = {
     logoutMsg: 'User status is invalid, please log in again',
     logoutWithModal: 'Pop up modal after request failed and then log out user',
     logoutWithModalMsg: 'User status is invalid, please log in again',
-    refreshToken: 'The requested token has expired, refresh the token',
-    tokenExpired: 'The requested token has expired'
+    refreshToken: 'The token has expired, please refresh it',
+    tokenExpired: 'Token has expired',
+    error400: 'Request parameter error (400)',
+    error401: 'User status has expired, please login again (401)',
+    error403: 'Permission denied (Non-admin) (403)',
+    error404: 'Request resource does not exist (404)',
+    error500: 'The server is busy, please reload (500)'
   },
   theme: {
     themeDrawerTitle: 'Theme Configuration',

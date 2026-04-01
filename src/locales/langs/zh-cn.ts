@@ -56,7 +56,12 @@ const local: App.I18n.Schema = {
     logoutWithModal: '请求失败后弹出模态框再登出用户',
     logoutWithModalMsg: '用户状态失效，请重新登录',
     refreshToken: '请求的token已过期，刷新token',
-    tokenExpired: 'token已过期'
+    tokenExpired: 'token已过期',
+    error400: '请求参数错误 (400)',
+    error401: '用户状态失效，请重新登录 (401)',
+    error403: '权限不足 (非管理员) (403)',
+    error404: '请求资源不存在 (404)',
+    error500: '服务器繁忙，请重新加载 (500)'
   },
   theme: {
     themeDrawerTitle: '主题配置',

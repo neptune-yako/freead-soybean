@@ -1,10 +1,11 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, ref } from 'vue';
 import type { Component } from 'vue';
 import { getPaletteColorByNumber, mixColor } from '@sa/color';
 import { loginModuleRecord } from '@/constants/app';
 import { useAppStore } from '@/store/modules/app';
 import { useThemeStore } from '@/store/modules/theme';
+import { fetchHealthCheck } from '@/service/api/system';
 import { $t } from '@/locales';
 import PwdLogin from './modules/pwd-login.vue';
 import CodeLogin from './modules/code-login.vue';
@@ -48,12 +49,26 @@ const bgColor = computed(() => {
 
   return mixColor(COLOR_WHITE, themeStore.themeColor, ratio);
 });
+
+const healthLoading = ref(false);
+
+async function handleHealthCheck() {
+  healthLoading.value = true;
+  try {
+    const data = await fetchHealthCheck();
+    if (data) {
+      window.$message?.success(`后端连通成功！响应：${JSON.stringify(data)}`);
+    }
+  } finally {
+    healthLoading.value = false;
+  }
+}
 </script>
 
 <template>
   <div class="relative size-full flex-center overflow-hidden" :style="{ backgroundColor: bgColor }">
     <WaveBg :theme-color="bgThemeColor" />
-    <NCard :bordered="false" class="relative z-4 w-auto rd-12px">
+    <NCard :bordered="false" class="relative z-4 w-auto rd-12px shadow-sm">
       <div class="w-400px lt-sm:w-300px">
         <header class="flex-y-center justify-between">
           <SystemLogo class="size-64px lt-sm:size-48px" />
@@ -82,6 +97,15 @@ const bgColor = computed(() => {
             </Transition>
           </div>
         </main>
+        <!-- 底部连通性测试 -->
+        <footer class="mt-24px border-t border-gray-100 pt-16px flex-center">
+          <NButton :loading="healthLoading" quaternary size="small" type="primary" @click="handleHealthCheck">
+            <template #icon>
+              <icon-mdi-api />
+            </template>
+            测试服务器连通性
+          </NButton>
+        </footer>
       </div>
     </NCard>
   </div>

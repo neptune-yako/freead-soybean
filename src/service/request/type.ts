@@ -1,7 +1,7 @@
 export interface RequestInstanceState {
-  /** the promise of refreshing token */
+  /** 刷新 Token 的 Promise */
   refreshTokenPromise: Promise<boolean> | null;
-  /** the request error message stack */
+  /** 请求错误消息栈 */
   errMsgStack: string[];
   [key: string]: unknown;
 }
