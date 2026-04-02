@@ -1,5 +1,6 @@
 import { h, reactive } from 'vue';
 import { NButton, NPopconfirm, NProgress, NSpace, NSwitch, NTag } from 'naive-ui';
+import dayjs from 'dayjs';
 import { useNaivePaginatedTable } from '@/hooks/common/table';
 import { fetchGetRedeemCodes, fetchGetRedeemRecords, fetchUpdateRedeemCode, fetchInvalidateExpiredCodes } from '@/service/api/redeem';
 import { fetchGetMembershipPlans } from '@/service/api/membership';
@@ -69,9 +70,9 @@ export function useRedeemTable(onEdit: (row: Api.Redeem.RedeemCode) => void) {
         title: $t('page.management_redeem.validTime'),
         align: 'center',
         width: 200,
-        render: row => h('div', { class: 'text-12px' }, [
-          h('div', `起: ${row.valid_from || '-'}`),
-          h('div', `止: ${row.valid_until || '-'}`)
+        render: row => h('div', { class: 'text-12px font-mono' }, [
+          h('div', `起: ${row.valid_from ? dayjs(row.valid_from).format('YYYY-MM-DD HH:mm:ss') : '-'}`),
+          h('div', `止: ${row.valid_until ? dayjs(row.valid_until).format('YYYY-MM-DD HH:mm:ss') : '-'}`)
         ])
       },
       {
@@ -236,7 +237,8 @@ export function useRedeemRecordTable() {
         key: 'created_at',
         title: $t('page.management_redeem.redeemedAt'),
         align: 'center',
-        minWidth: 160
+        minWidth: 160,
+        render: row => h('span', { class: 'font-mono' }, dayjs(row.created_at).format('YYYY-MM-DD HH:mm:ss'))
       }
     ],
     transform: (res: any) => {
