@@ -94,6 +94,15 @@ export const generatedRoutes: GeneratedRoute[] = [
         }
       },
       {
+        name: 'management_feedback',
+        path: '/management/feedback',
+        component: 'view.management_feedback',
+        meta: {
+          title: 'management_feedback',
+          i18nKey: 'route.management_feedback'
+        }
+      },
+      {
         name: 'management_membership',
         path: '/management/membership',
         meta: {

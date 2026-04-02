@@ -242,7 +242,8 @@ const local: App.I18n.Schema = {
     management_redeem: 'Redeem Management',
     management_membership: 'Membership',
     management_membership_tiers: 'Membership Tiers',
-    management_membership_plans: 'Membership Plans'
+    management_membership_plans: 'Membership Plans',
+    management_feedback: 'Feedback & Survey'
   },
   page: {
     login: {
@@ -362,6 +363,15 @@ const local: App.I18n.Schema = {
       durationDays: 'Duration (Days)',
       status: 'Status',
       sortOrder: 'Sort Order'
+    },
+    management_feedback: {
+      totalSubmissions: 'Total Submissions',
+      todaySubmissions: 'Today Submissions',
+      latestRecords: 'Latest Records',
+      questionStats: 'Question Stats',
+      records: 'Submission List',
+      viewDetail: 'View Detail',
+      payload: 'Answer Detail'
     }
   },
   form: {

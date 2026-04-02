@@ -605,6 +605,15 @@ declare namespace App {
           status: string;
           sortOrder: string;
         };
+        management_feedback: {
+          totalSubmissions: string;
+          todaySubmissions: string;
+          latestRecords: string;
+          questionStats: string;
+          records: string;
+          viewDetail: string;
+          payload: string;
+        };
       };
       form: {
         required: string;

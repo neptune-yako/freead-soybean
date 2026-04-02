@@ -238,7 +238,8 @@ const local: App.I18n.Schema = {
     management_redeem: '兑换码管理',
     management_membership: '会员管理',
     management_membership_tiers: '会员等级',
-    management_membership_plans: '会员套餐'
+    management_membership_plans: '会员套餐',
+    management_feedback: '问卷反馈'
   },
   page: {
     login: {
@@ -358,6 +359,15 @@ const local: App.I18n.Schema = {
       durationDays: '有效期 (天)',
       status: '上架状态',
       sortOrder: '排序权重'
+    },
+    management_feedback: {
+      totalSubmissions: '累计提交数',
+      todaySubmissions: '今日新增',
+      latestRecords: '最近提交记录',
+      questionStats: '题目聚合统计',
+      records: '答卷明细列表',
+      viewDetail: '查看答卷详情',
+      payload: '答卷详情'
     }
   },
   form: {
