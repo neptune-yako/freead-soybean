@@ -95,10 +95,7 @@
     "vite-plugin-vue-transition-root-validator": "^0.1.0",
     "vue-tsc": "3.2.6"
   },
-  "simple-git-hooks": {
-    "commit-msg": "pnpm sa git-commit-verify",
-    "pre-commit": "git diff --exit-code"
-  },
+  "simple-git-hooks": {},
   "engines": {
     "node": ">=20.19.0",
     "pnpm": ">=10.5.0"
