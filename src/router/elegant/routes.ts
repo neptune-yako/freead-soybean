@@ -131,6 +131,15 @@ export const generatedRoutes: GeneratedRoute[] = [
         ]
       },
       {
+        name: 'management_payment',
+        path: '/management/payment',
+        component: 'view.management_payment',
+        meta: {
+          title: 'management_payment',
+          i18nKey: 'route.management_payment'
+        }
+      },
+      {
         name: 'management_redeem',
         path: '/management/redeem',
         component: 'view.management_redeem',

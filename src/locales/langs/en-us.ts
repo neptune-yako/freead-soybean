@@ -243,7 +243,8 @@ const local: App.I18n.Schema = {
     management_membership: 'Membership',
     management_membership_tiers: 'Membership Tiers',
     management_membership_plans: 'Membership Plans',
-    management_feedback: 'Feedback & Survey'
+    management_feedback: 'Feedback & Survey',
+    management_payment: 'Payment'
   },
   page: {
     login: {
@@ -372,6 +373,16 @@ const local: App.I18n.Schema = {
       records: 'Submission List',
       viewDetail: 'View Detail',
       payload: 'Answer Detail'
+    },
+    management_payment: {
+      statistics: 'Revenue Statistics',
+      totalRevenue: 'Total Revenue',
+      totalOrders: 'Total Orders',
+      revenueTrend: 'Revenue Trend (CNY)',
+      orderTrend: 'Order Trend (Count)',
+      triggerPersist: 'Trigger Daily Snapshot',
+      lastSevenDays: 'Last 7 Days',
+      lastThirtyDays: 'Last 30 Days'
     }
   },
   form: {
@@ -397,8 +408,8 @@ const local: App.I18n.Schema = {
       invalid: 'Verification code format is incorrect'
     },
     email: {
-      required: 'Please enter email',
-      invalid: 'Email format is incorrect'
+      required: 'Please enter email address',
+      invalid: 'Email address format is incorrect'
     }
   },
   dropdown: {
@@ -407,11 +418,11 @@ const local: App.I18n.Schema = {
     closeLeft: 'Close Left',
     closeRight: 'Close Right',
     closeAll: 'Close All',
-    pin: 'Pin Tab',
-    unpin: 'Unpin Tab'
+    pin: 'Pin',
+    unpin: 'Unpin'
   },
   icon: {
-    themeConfig: 'Theme Configuration',
+    themeConfig: 'Theme Config',
     themeSchema: 'Theme Schema',
     lang: 'Switch Language',
     fullscreen: 'Fullscreen',
@@ -425,8 +436,8 @@ const local: App.I18n.Schema = {
   datatable: {
     itemCount: 'Total {total} items',
     fixed: {
-      left: 'Left Fixed',
-      right: 'Right Fixed',
+      left: 'Fixed Left',
+      right: 'Fixed Right',
       unFixed: 'Unfixed'
     }
   }

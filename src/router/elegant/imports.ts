@@ -25,5 +25,6 @@ export const views: Record<LastLevelRouteKey, RouteComponent | (() => Promise<Ro
   management_feedback: () => import("@/views/management/feedback/index.vue"),
   management_membership_plans: () => import("@/views/management/membership/plans/index.vue"),
   management_membership_tiers: () => import("@/views/management/membership/tiers/index.vue"),
+  management_payment: () => import("@/views/management/payment/index.vue"),
   management_redeem: () => import("@/views/management/redeem/index.vue"),
 };

@@ -6,7 +6,7 @@ import { adminRequest } from '../request';
  * @param params 查询参数 (days)
  */
 export function fetchGetRevenueTrends(params?: Api.Payment.TrendSearchParams) {
-  return adminRequest<Api.Payment.DailyStat[]>({
+  return adminRequest<Api.Payment.TrendResponse>({
     url: '/payment/trends',
     method: 'get',
     params
@@ -28,7 +28,7 @@ export function fetchTriggerRevenuePersist() {
 /**
  * 人工强制补单 (Manual Grant)
  *
- * @param data 补单参数 (order_id, remark)
+ * @param data 补单参数 (out_trade_no, remark, override_tier_code, override_plan_days)
  */
 export function fetchManualGrantOrder(data: Api.Payment.ManualGrantRequest) {
   return adminRequest<boolean>({
@@ -42,10 +42,12 @@ export function fetchManualGrantOrder(data: Api.Payment.ManualGrantRequest) {
  * 异常订单归档 (Archive)
  *
  * @description 强制将待支付或状态异常的订单标记为已失效
+ * @param data 订单标识 (out_trade_no, reason)
  */
-export function fetchArchiveOrders() {
+export function fetchArchiveOrders(data: { out_trade_no: string; reason?: string }) {
   return adminRequest<boolean>({
     url: '/payment/orders/archive',
-    method: 'post'
+    method: 'post',
+    data
   });
 }

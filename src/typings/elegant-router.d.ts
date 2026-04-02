@@ -29,6 +29,7 @@ declare module "@elegant-router/types" {
     "management_membership": "/management/membership";
     "management_membership_plans": "/management/membership/plans";
     "management_membership_tiers": "/management/membership/tiers";
+    "management_payment": "/management/payment";
     "management_redeem": "/management/redeem";
   };
 
@@ -94,6 +95,7 @@ declare module "@elegant-router/types" {
     | "management_feedback"
     | "management_membership_plans"
     | "management_membership_tiers"
+    | "management_payment"
     | "management_redeem"
   >;
 

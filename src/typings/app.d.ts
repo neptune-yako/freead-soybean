@@ -614,6 +614,16 @@ declare namespace App {
           viewDetail: string;
           payload: string;
         };
+        management_payment: {
+          statistics: string;
+          totalRevenue: string;
+          totalOrders: string;
+          revenueTrend: string;
+          orderTrend: string;
+          triggerPersist: string;
+          lastSevenDays: string;
+          lastThirtyDays: string;
+        };
       };
       form: {
         required: string;

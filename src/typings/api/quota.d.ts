@@ -13,6 +13,18 @@ declare namespace Api {
       total_active_users: number;
     }
 
+    /** 全站配额趋势聚合响应 */
+    interface QuotaTrendResponse {
+      /** 期间内累计全站上传总数 */
+      period_total_upload: number;
+      /** 期间内累计全站消耗 Token 总数 */
+      period_total_tokens: number;
+      /** 期间内累计全站活跃人次 (DAU 之和) */
+      period_total_active_users: number;
+      /** 每日详细消耗快照列表 */
+      items: GlobalQuotaStat[];
+    }
+
     /** 趋势查询条件 */
     interface TrendSearchParams {
       /** 回溯天数 (默认 7) */

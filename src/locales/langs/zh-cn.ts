@@ -239,7 +239,8 @@ const local: App.I18n.Schema = {
     management_membership: '会员管理',
     management_membership_tiers: '会员等级',
     management_membership_plans: '会员套餐',
-    management_feedback: '问卷反馈'
+    management_feedback: '问卷反馈',
+    management_payment: '支付统计'
   },
   page: {
     login: {
@@ -364,10 +365,20 @@ const local: App.I18n.Schema = {
       totalSubmissions: '累计提交数',
       todaySubmissions: '今日新增',
       latestRecords: '最近提交记录',
-      questionStats: '题目聚合统计',
+      questionStats: '题目聚合分析',
       records: '答卷明细列表',
       viewDetail: '查看答卷详情',
-      payload: '答卷详情'
+      payload: '原始答卷数据'
+    },
+    management_payment: {
+      statistics: '营收概览',
+      totalRevenue: '总营收',
+      totalOrders: '总成交笔数',
+      revenueTrend: '营收走势 (元)',
+      orderTrend: '订单走势 (笔)',
+      triggerPersist: '手动同步财务快照',
+      lastSevenDays: '最近 7 天',
+      lastThirtyDays: '最近 30 天'
     }
   },
   form: {

@@ -18,7 +18,7 @@ export function fetchGetTodayQuotaStats() {
  * @param params 分页/回溯参数 (days)
  */
 export function fetchGetQuotaTrends(params?: Api.Quota.TrendSearchParams) {
-  return adminRequest<Api.Quota.GlobalQuotaStat[]>({
+  return adminRequest<Api.Quota.QuotaTrendResponse>({
     url: '/quota/trends',
     method: 'get',
     params
