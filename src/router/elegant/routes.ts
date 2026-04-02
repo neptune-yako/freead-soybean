@@ -140,6 +140,15 @@ export const generatedRoutes: GeneratedRoute[] = [
         }
       },
       {
+        name: 'management_quota',
+        path: '/management/quota',
+        component: 'view.management_quota',
+        meta: {
+          title: 'management_quota',
+          i18nKey: 'route.management_quota'
+        }
+      },
+      {
         name: 'management_redeem',
         path: '/management/redeem',
         component: 'view.management_redeem',

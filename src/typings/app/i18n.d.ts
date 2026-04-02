@@ -332,6 +332,16 @@ declare namespace App {
           lastSevenDays: string;
           lastThirtyDays: string;
         };
+        management_quota: {
+          statistics: string;
+          totalWords: string;
+          totalTokens: string;
+          wordsTrend: string;
+          tokensTrend: string;
+          triggerPersist: string;
+          lastSevenDays: string;
+          lastThirtyDays: string;
+        };
       };
       form: {
         required: string;

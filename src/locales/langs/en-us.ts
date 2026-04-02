@@ -244,7 +244,8 @@ const local: App.I18n.Schema = {
     management_membership_tiers: 'Membership Tiers',
     management_membership_plans: 'Membership Plans',
     management_feedback: 'Feedback & Survey',
-    management_payment: 'Payment'
+    management_payment: 'Payment',
+    management_quota: 'Quota'
   },
   page: {
     login: {
@@ -318,7 +319,8 @@ const local: App.I18n.Schema = {
         desc2: 'Yanbowe submitted a bug to soybean-admin, the multi-tab bar will not adapt.',
         desc3: 'Soybean is ready to do sufficient preparation for the release of soybean-admin!',
         desc4: 'Soybean is busy writing project documentation for soybean-admin!',
-        desc5: 'Soybean just wrote some of the workbench pages casually, and it was enough to see!'
+        desc5: 'Soybean just wrote some of the workbench pages casually, and it was enough to see!',
+        desc6: 'Soybean is performing advanced context optimization for the development team!'
       },
       creativity: 'Creativity'
     },
@@ -381,6 +383,16 @@ const local: App.I18n.Schema = {
       revenueTrend: 'Revenue Trend (CNY)',
       orderTrend: 'Order Trend (Count)',
       triggerPersist: 'Trigger Daily Snapshot',
+      lastSevenDays: 'Last 7 Days',
+      lastThirtyDays: 'Last 30 Days'
+    },
+    management_quota: {
+      statistics: 'Quota Statistics',
+      totalWords: 'Total OCR Count',
+      totalTokens: 'Total Tokens',
+      wordsTrend: 'OCR Trend',
+      tokensTrend: 'Tokens Trend',
+      triggerPersist: 'Trigger Quota Snapshot',
       lastSevenDays: 'Last 7 Days',
       lastThirtyDays: 'Last 30 Days'
     }

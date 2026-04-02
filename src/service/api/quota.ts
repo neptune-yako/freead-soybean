@@ -26,6 +26,16 @@ export function fetchGetQuotaTrends(params?: Api.Quota.TrendSearchParams) {
 }
 
 /**
+ * 手动触发当日配额统计持久化 (审计/对账专用)
+ */
+export function fetchTriggerQuotaPersist() {
+  return adminRequest<boolean>({
+    url: '/quota/persist',
+    method: 'post'
+  });
+}
+
+/**
  * 查阅指定用户的今日配额详情 (审计专用)
  *
  * @param user_id 用户ID

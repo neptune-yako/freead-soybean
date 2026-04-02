@@ -239,8 +239,9 @@ const local: App.I18n.Schema = {
     management_membership: '会员管理',
     management_membership_tiers: '会员等级',
     management_membership_plans: '会员套餐',
-    management_feedback: '问卷反馈',
-    management_payment: '支付统计'
+    management_feedback: '反馈调查',
+    management_payment: '财务统计',
+    management_quota: '配额统计'
   },
   page: {
     login: {
@@ -313,8 +314,9 @@ const local: App.I18n.Schema = {
         desc1: 'Soybean 在2021年5月28日创建了开源项目 soybean-admin!',
         desc2: 'Yanbowe 向 soybean-admin 提交了一个bug，多标签栏不会自适应。',
         desc3: 'Soybean 准备为 soybean-admin 的发布做充分的准备工作!',
-        desc4: 'Soybean 正在忙于为soybean-admin写项目说明文档！',
-        desc5: 'Soybean 刚才把工作台页面随便写了一些，凑合能看了！'
+        desc4: 'Soybean 正在忙着为 soybean-admin 写项目文档呢！',
+        desc5: 'Soybean 刚才随便写了几个工作台的页面，就足够看的了！',
+        desc6: 'Soybean 正在为开发团队进行深度的上下文优化！'
       },
       creativity: '创意'
     },
@@ -377,6 +379,16 @@ const local: App.I18n.Schema = {
       revenueTrend: '营收走势 (元)',
       orderTrend: '订单走势 (笔)',
       triggerPersist: '手动同步财务快照',
+      lastSevenDays: '最近 7 天',
+      lastThirtyDays: '最近 30 天'
+    },
+    management_quota: {
+      statistics: '消耗统计',
+      totalWords: '累计 OCR 次数',
+      totalTokens: '累计 Token',
+      wordsTrend: 'OCR 走势',
+      tokensTrend: 'Token 走势',
+      triggerPersist: '手动同步统计快照',
       lastSevenDays: '最近 7 天',
       lastThirtyDays: '最近 30 天'
     }
