@@ -45,6 +45,8 @@ const local: App.I18n.Schema = {
     update: '更新',
     updateSuccess: '更新成功',
     userCenter: '个人中心',
+    createdAt: '创建时间',
+    updateTime: '更新时间',
     yesOrNo: {
       yes: '是',
       no: '否'
@@ -233,7 +235,9 @@ const local: App.I18n.Schema = {
     home: '首页',
     management: '管理中台',
     management_admin: '管理员管理',
-    management_redeem: '兑换码管理'
+    management_redeem: '兑换码管理',
+    management_membership: '会员管理',
+    management_membership_tiers: '会员等级'
   },
   page: {
     login: {
@@ -333,6 +337,19 @@ const local: App.I18n.Schema = {
       redeemedAt: '兑换时间',
       batchInvalidate: '清理过期码',
       confirmInvalidate: '确认要批量将所有过期码标记为禁用吗？该操作不可撤销。'
+    },
+    management_membership_tiers: {
+      tierCode: '等级代码',
+      tierName: '等级名称',
+      weight: '等级权重',
+      isDefault: '默认等级',
+      quotaConfig: '权益配额',
+      maxWords: '单次字数限制',
+      dailyTokens: '每日 Token 上限',
+      uploadCount: '每日上传次数',
+      maxFileSize: '单文件大小 (MB)',
+      bookshelfCapacity: '书架容量',
+      remark: '备注'
     }
   },
   form: {

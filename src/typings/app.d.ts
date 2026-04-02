@@ -357,6 +357,8 @@ declare namespace App {
         update: string;
         updateSuccess: string;
         userCenter: string;
+        createdAt: string;
+        updateTime: string;
         yesOrNo: {
           yes: string;
           no: string;
@@ -582,6 +584,19 @@ declare namespace App {
           redeemedAt: string;
           batchInvalidate: string;
           confirmInvalidate: string;
+        };
+        management_membership_tiers: {
+          tierCode: string;
+          tierName: string;
+          weight: string;
+          isDefault: string;
+          quotaConfig: string;
+          maxWords: string;
+          dailyTokens: string;
+          uploadCount: string;
+          maxFileSize: string;
+          bookshelfCapacity: string;
+          remark: string;
         };
       };
       form: {

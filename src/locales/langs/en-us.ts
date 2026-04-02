@@ -45,6 +45,8 @@ const local: App.I18n.Schema = {
     update: 'Update',
     updateSuccess: 'Update Success',
     userCenter: 'User Center',
+    createdAt: 'Created At',
+    updateTime: 'Update Time',
     yesOrNo: {
       yes: 'Yes',
       no: 'No'
@@ -237,7 +239,9 @@ const local: App.I18n.Schema = {
     home: 'Home',
     management: 'Management',
     management_admin: 'Admin Management',
-    management_redeem: 'Redeem Management'
+    management_redeem: 'Redeem Management',
+    management_membership: 'Membership',
+    management_membership_tiers: 'Membership Tiers'
   },
   page: {
     login: {
@@ -323,20 +327,33 @@ const local: App.I18n.Schema = {
       createdAt: 'Created At'
     },
     management_redeem: {
-      tabCode: 'Redeem Codes',
-      tabRecord: 'Redemption Records',
-      code: 'Code',
-      planName: 'Associated Plan',
-      validTime: 'Validity Period',
+      tabCode: 'Redeem Code List',
+      tabRecord: 'Redeem Audit',
+      code: 'Redeem Code',
+      planName: 'Plan Name',
+      validTime: 'Validity',
       validFrom: 'Valid From',
       validUntil: 'Valid Until',
       maxUses: 'Max Uses',
-      currentUses: 'Current Uses',
+      currentUses: 'Usage',
       status: 'Status',
       user: 'User',
       redeemedAt: 'Redeemed At',
-      batchInvalidate: 'Invalidate Expired',
-      confirmInvalidate: 'Are you sure you want to invalidate all expired codes? This action cannot be undone.'
+      batchInvalidate: 'Cleanup Expired',
+      confirmInvalidate: 'Are you sure you want to disable all expired codes? This action cannot be undone.'
+    },
+    management_membership_tiers: {
+      tierCode: 'Tier Code',
+      tierName: 'Tier Name',
+      weight: 'Weight',
+      isDefault: 'Default',
+      quotaConfig: 'Quota Config',
+      maxWords: 'Max Words',
+      dailyTokens: 'Daily Tokens',
+      uploadCount: 'Upload Count',
+      maxFileSize: 'Max File Size (MB)',
+      bookshelfCapacity: 'Bookshelf Capacity',
+      remark: 'Remark'
     }
   },
   form: {

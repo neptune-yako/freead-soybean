@@ -94,6 +94,25 @@ export const generatedRoutes: GeneratedRoute[] = [
         }
       },
       {
+        name: 'management_membership',
+        path: '/management/membership',
+        meta: {
+          title: 'management_membership',
+          i18nKey: 'route.management_membership'
+        },
+        children: [
+          {
+            name: 'management_membership_tiers',
+            path: '/management/membership/tiers',
+            component: 'view.management_membership_tiers',
+            meta: {
+              title: 'management_membership_tiers',
+              i18nKey: 'route.management_membership_tiers'
+            }
+          }
+        ]
+      },
+      {
         name: 'management_redeem',
         path: '/management/redeem',
         component: 'view.management_redeem',

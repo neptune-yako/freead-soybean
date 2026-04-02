@@ -29,6 +29,14 @@ export function createStaticRoutes() {
         Object.assign(route, { meta: { ...route.meta, roles: ['super_admin', 'operator'] } });
       }
 
+      if (['management_membership', 'management_membership_tiers'].includes((route as any).name)) {
+        Object.assign(route, { meta: { ...route.meta, roles: ['super_admin', 'operator'] } });
+      }
+
+      if ((route as any).name === 'management_membership_tiers') {
+        Object.assign(route, { meta: { ...route.meta, roles: ['super_admin', 'operator'] } });
+      }
+
       if ((route as any).children?.length) {
         addRolesToRoute((route as any).children);
       }
