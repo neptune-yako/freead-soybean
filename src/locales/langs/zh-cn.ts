@@ -232,7 +232,8 @@ const local: App.I18n.Schema = {
     'iframe-page': '外链页面',
     home: '首页',
     management: '管理中台',
-    management_admin: '管理员管理'
+    management_admin: '管理员管理',
+    management_redeem: '兑换码管理'
   },
   page: {
     login: {
@@ -316,6 +317,22 @@ const local: App.I18n.Schema = {
       role: '角色',
       status: '状态',
       createdAt: '创建时间'
+    },
+    management_redeem: {
+      tabCode: '兑换码列表',
+      tabRecord: '兑换流水',
+      code: '兑换码',
+      planName: '关联套餐',
+      validTime: '有效期',
+      validFrom: '生效时间',
+      validUntil: '完成时间',
+      maxUses: '最大次数',
+      currentUses: '使用进度',
+      status: '状态',
+      user: '兑换用户',
+      redeemedAt: '兑换时间',
+      batchInvalidate: '清理过期码',
+      confirmInvalidate: '确认要批量将所有过期码标记为禁用吗？该操作不可撤销。'
     }
   },
   form: {

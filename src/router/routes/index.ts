@@ -25,6 +25,10 @@ export function createStaticRoutes() {
         Object.assign(route, { meta: { ...route.meta, roles: ['super_admin'] } });
       }
 
+      if ((route as any).name === 'management_redeem') {
+        Object.assign(route, { meta: { ...route.meta, roles: ['super_admin', 'operator'] } });
+      }
+
       if ((route as any).children?.length) {
         addRolesToRoute((route as any).children);
       }

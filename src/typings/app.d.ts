@@ -567,6 +567,22 @@ declare namespace App {
           status: string;
           createdAt: string;
         };
+        management_redeem: {
+          tabCode: string;
+          tabRecord: string;
+          code: string;
+          planName: string;
+          validTime: string;
+          validFrom: string;
+          validUntil: string;
+          maxUses: string;
+          currentUses: string;
+          status: string;
+          user: string;
+          redeemedAt: string;
+          batchInvalidate: string;
+          confirmInvalidate: string;
+        };
       };
       form: {
         required: string;

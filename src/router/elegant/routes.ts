@@ -92,6 +92,15 @@ export const generatedRoutes: GeneratedRoute[] = [
           title: 'management_admin',
           i18nKey: 'route.management_admin'
         }
+      },
+      {
+        name: 'management_redeem',
+        path: '/management/redeem',
+        component: 'view.management_redeem',
+        meta: {
+          title: 'management_redeem',
+          i18nKey: 'route.management_redeem'
+        }
       }
     ]
   }

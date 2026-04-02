@@ -236,7 +236,8 @@ const local: App.I18n.Schema = {
     'iframe-page': 'Iframe',
     home: 'Home',
     management: 'Management',
-    management_admin: 'Admin Management'
+    management_admin: 'Admin Management',
+    management_redeem: 'Redeem Management'
   },
   page: {
     login: {
@@ -320,6 +321,22 @@ const local: App.I18n.Schema = {
       role: 'Role',
       status: 'Status',
       createdAt: 'Created At'
+    },
+    management_redeem: {
+      tabCode: 'Redeem Codes',
+      tabRecord: 'Redemption Records',
+      code: 'Code',
+      planName: 'Associated Plan',
+      validTime: 'Validity Period',
+      validFrom: 'Valid From',
+      validUntil: 'Valid Until',
+      maxUses: 'Max Uses',
+      currentUses: 'Current Uses',
+      status: 'Status',
+      user: 'User',
+      redeemedAt: 'Redeemed At',
+      batchInvalidate: 'Invalidate Expired',
+      confirmInvalidate: 'Are you sure you want to invalidate all expired codes? This action cannot be undone.'
     }
   },
   form: {

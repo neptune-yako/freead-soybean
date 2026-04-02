@@ -25,6 +25,7 @@ declare module "@elegant-router/types" {
     "login": "/login/:module(pwd-login|code-login|register|reset-pwd|bind-wechat)?";
     "management": "/management";
     "management_admin": "/management/admin";
+    "management_redeem": "/management/redeem";
   };
 
   /**
@@ -86,6 +87,7 @@ declare module "@elegant-router/types" {
     | "login"
     | "home"
     | "management_admin"
+    | "management_redeem"
   >;
 
   /**
