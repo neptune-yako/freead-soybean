@@ -25,6 +25,7 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
     id: 0,
     username: '',
     full_name: '',
+    role_code: '',
     roles: [],
     buttons: [],
     is_active: false,
@@ -155,9 +156,12 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
       // 更新 Store
       Object.assign(userInfo, info);
 
-      // 默认注入 admin 角色以支持路由权限控制
-      if (!userInfo.roles.length) {
-        userInfo.roles = ['admin'];
+      // 将 role_code 映射到 roles 数组中，以支持 Soybean 的权限路由
+      if (userInfo.role_code) {
+        userInfo.roles = [userInfo.role_code];
+      } else if (!userInfo.roles.length) {
+        // 退化处理：若无 role_code 则维持原有逻辑或设为空
+        userInfo.roles = [];
       }
 
       return true;

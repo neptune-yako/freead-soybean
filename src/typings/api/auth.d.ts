@@ -15,6 +15,7 @@ declare namespace Api {
       id: number;
       username: string;
       full_name: string;
+      role_code: string;
       roles: string[];
       buttons: string[];
       is_active: boolean;

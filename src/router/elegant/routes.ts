@@ -74,5 +74,25 @@ export const generatedRoutes: GeneratedRoute[] = [
       constant: true,
       hideInMenu: true
     }
+  },
+  {
+    name: 'management',
+    path: '/management',
+    component: 'layout.base',
+    meta: {
+      title: 'management',
+      i18nKey: 'route.management'
+    },
+    children: [
+      {
+        name: 'management_admin',
+        path: '/management/admin',
+        component: 'view.management_admin',
+        meta: {
+          title: 'management_admin',
+          i18nKey: 'route.management_admin'
+        }
+      }
+    ]
   }
 ];

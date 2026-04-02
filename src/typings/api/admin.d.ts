@@ -1,11 +1,15 @@
 declare namespace Api {
   /** 管理员模块 */
   namespace Admin {
+    /** 管理员角色枚举 */
+    type AdminRole = 'super_admin' | 'operator';
+
     /** 管理员简况 */
     interface AdminProfile {
       id: number;
       username: string;
       full_name: string;
+      role_code: AdminRole;
       is_active: boolean;
       created_at: string;
     }
@@ -14,6 +18,8 @@ declare namespace Api {
     interface AdminSearchParams {
       page?: number;
       size?: number;
+      username?: string;
+      full_name?: string;
     }
 
     /** 创建管理员 */
@@ -21,6 +27,7 @@ declare namespace Api {
       username: string;
       password: string;
       full_name: string;
+      role_code?: AdminRole;
       is_active?: boolean;
     }
 
@@ -28,6 +35,7 @@ declare namespace Api {
     interface AdminUpdate {
       password?: string;
       full_name?: string;
+      role_code?: AdminRole;
       is_active?: boolean;
     }
 

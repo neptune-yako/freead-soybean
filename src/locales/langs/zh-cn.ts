@@ -230,7 +230,9 @@ const local: App.I18n.Schema = {
     404: '页面不存在',
     500: '服务器错误',
     'iframe-page': '外链页面',
-    home: '首页'
+    home: '首页',
+    management: '管理中台',
+    management_admin: '管理员管理'
   },
   page: {
     login: {
@@ -307,6 +309,13 @@ const local: App.I18n.Schema = {
         desc5: 'Soybean 刚才把工作台页面随便写了一些，凑合能看了！'
       },
       creativity: '创意'
+    },
+    management_admin: {
+      userName: '用户名',
+      userNickName: '姓名',
+      role: '角色',
+      status: '状态',
+      createdAt: '创建时间'
     }
   },
   form: {

@@ -560,6 +560,13 @@ declare namespace App {
           };
           creativity: string;
         };
+        management_admin: {
+          userName: string;
+          userNickName: string;
+          role: string;
+          status: string;
+          createdAt: string;
+        };
       };
       form: {
         required: string;

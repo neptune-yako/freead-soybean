@@ -16,7 +16,24 @@ export function createStaticRoutes() {
 
   const authRoutes: ElegantRoute[] = [];
 
-  [...customRoutes, ...generatedRoutes].forEach(item => {
+  const allRoutes = [...customRoutes, ...generatedRoutes];
+
+  // recursive add roles to management_admin
+  function addRolesToRoute(routes: ElegantRoute[]) {
+    routes.forEach(route => {
+      if ((route as any).name === 'management_admin') {
+        Object.assign(route, { meta: { ...route.meta, roles: ['super_admin'] } });
+      }
+
+      if ((route as any).children?.length) {
+        addRolesToRoute((route as any).children);
+      }
+    });
+  }
+
+  addRolesToRoute(allRoutes);
+
+  allRoutes.forEach(item => {
     if (item.meta?.constant) {
       constantRoutes.push(item);
     } else {
