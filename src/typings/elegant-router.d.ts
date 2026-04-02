@@ -26,6 +26,7 @@ declare module "@elegant-router/types" {
     "management": "/management";
     "management_admin": "/management/admin";
     "management_membership": "/management/membership";
+    "management_membership_plans": "/management/membership/plans";
     "management_membership_tiers": "/management/membership/tiers";
     "management_redeem": "/management/redeem";
   };
@@ -89,6 +90,7 @@ declare module "@elegant-router/types" {
     | "login"
     | "home"
     | "management_admin"
+    | "management_membership_plans"
     | "management_membership_tiers"
     | "management_redeem"
   >;

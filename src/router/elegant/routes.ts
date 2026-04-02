@@ -102,6 +102,15 @@ export const generatedRoutes: GeneratedRoute[] = [
         },
         children: [
           {
+            name: 'management_membership_plans',
+            path: '/management/membership/plans',
+            component: 'view.management_membership_plans',
+            meta: {
+              title: 'management_membership_plans',
+              i18nKey: 'route.management_membership_plans'
+            }
+          },
+          {
             name: 'management_membership_tiers',
             path: '/management/membership/tiers',
             component: 'view.management_membership_tiers',

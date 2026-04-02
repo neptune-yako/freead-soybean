@@ -237,7 +237,8 @@ const local: App.I18n.Schema = {
     management_admin: '管理员管理',
     management_redeem: '兑换码管理',
     management_membership: '会员管理',
-    management_membership_tiers: '会员等级'
+    management_membership_tiers: '会员等级',
+    management_membership_plans: '会员套餐'
   },
   page: {
     login: {
@@ -350,6 +351,13 @@ const local: App.I18n.Schema = {
       maxFileSize: '单文件大小 (MB)',
       bookshelfCapacity: '书架容量',
       remark: '备注'
+    },
+    management_membership_plans: {
+      planName: '套餐名称',
+      priceCents: '价格',
+      durationDays: '有效期 (天)',
+      status: '上架状态',
+      sortOrder: '排序权重'
     }
   },
   form: {

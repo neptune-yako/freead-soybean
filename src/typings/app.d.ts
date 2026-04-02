@@ -598,6 +598,13 @@ declare namespace App {
           bookshelfCapacity: string;
           remark: string;
         };
+        management_membership_plans: {
+          planName: string;
+          priceCents: string;
+          durationDays: string;
+          status: string;
+          sortOrder: string;
+        };
       };
       form: {
         required: string;

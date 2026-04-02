@@ -22,6 +22,7 @@ export const views: Record<LastLevelRouteKey, RouteComponent | (() => Promise<Ro
   login: () => import("@/views/_builtin/login/index.vue"),
   home: () => import("@/views/home/index.vue"),
   management_admin: () => import("@/views/management/admin/index.vue"),
+  management_membership_plans: () => import("@/views/management/membership/plans/index.vue"),
   management_membership_tiers: () => import("@/views/management/membership/tiers/index.vue"),
   management_redeem: () => import("@/views/management/redeem/index.vue"),
 };

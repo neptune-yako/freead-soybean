@@ -241,7 +241,8 @@ const local: App.I18n.Schema = {
     management_admin: 'Admin Management',
     management_redeem: 'Redeem Management',
     management_membership: 'Membership',
-    management_membership_tiers: 'Membership Tiers'
+    management_membership_tiers: 'Membership Tiers',
+    management_membership_plans: 'Membership Plans'
   },
   page: {
     login: {
@@ -354,6 +355,13 @@ const local: App.I18n.Schema = {
       maxFileSize: 'Max File Size (MB)',
       bookshelfCapacity: 'Bookshelf Capacity',
       remark: 'Remark'
+    },
+    management_membership_plans: {
+      planName: 'Plan Name',
+      priceCents: 'Price',
+      durationDays: 'Duration (Days)',
+      status: 'Status',
+      sortOrder: 'Sort Order'
     }
   },
   form: {

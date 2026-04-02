@@ -172,6 +172,7 @@ const routeMap: RouteMap = {
   "management": "/management",
   "management_admin": "/management/admin",
   "management_membership": "/management/membership",
+  "management_membership_plans": "/management/membership/plans",
   "management_membership_tiers": "/management/membership/tiers",
   "management_redeem": "/management/redeem"
 };
