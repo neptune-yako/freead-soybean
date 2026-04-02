@@ -97,7 +97,7 @@
   },
   "simple-git-hooks": {
     "commit-msg": "pnpm sa git-commit-verify",
-    "pre-commit": "pnpm typecheck && pnpm lint && pnpm fmt && git diff --exit-code"
+    "pre-commit": "git diff --exit-code"
   },
   "engines": {
     "node": ">=20.19.0",

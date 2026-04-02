@@ -22,10 +22,13 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
   const token = ref('');
 
   const userInfo: Api.Auth.UserInfo = reactive({
-    userId: '',
-    userName: '',
+    id: 0,
+    username: '',
+    full_name: '',
     roles: [],
-    buttons: []
+    buttons: [],
+    is_active: false,
+    created_at: ''
   });
 
   /** is super role in static route */
@@ -54,14 +57,14 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
     routeStore.resetStore();
   }
 
-  /** Record the user ID of the previous login session Used to compare with the current user ID on next login */
+  /** 记录上一次登录的用户 ID */
   function recordUserId() {
-    if (!userInfo.userId) {
+    if (!userInfo.id) {
       return;
     }
 
-    // Store current user ID locally for next login comparison
-    localStg.set('lastLoginUserId', userInfo.userId);
+    // 将当前用户 ID 本地存储，用于下次登录对比
+    localStg.set('lastLoginUserId', String(userInfo.id));
   }
 
   /**
@@ -70,14 +73,14 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
    * @returns {boolean} Whether to clear all tabs
    */
   function checkTabClear(): boolean {
-    if (!userInfo.userId) {
+    if (!userInfo.id) {
       return false;
     }
 
     const lastLoginUserId = localStg.get('lastLoginUserId');
 
-    // Clear all tabs if current user is different from previous user
-    if (!lastLoginUserId || lastLoginUserId !== userInfo.userId) {
+    // 如果当前用户与上一次登录用户不同，清除所有标签页
+    if (!lastLoginUserId || lastLoginUserId !== String(userInfo.id)) {
       localStg.remove('globalTabs');
       tabStore.clearTabs();
 
@@ -117,7 +120,7 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
 
         window.$notification?.success({
           title: $t('page.login.common.loginSuccess'),
-          content: $t('page.login.common.welcomeBack', { userName: userInfo.userName }),
+          content: $t('page.login.common.welcomeBack', { userName: userInfo.full_name }),
           duration: 4500
         });
       }
@@ -129,15 +132,15 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
   }
 
   async function loginByToken(loginToken: Api.Auth.LoginToken) {
-    // 1. stored in the localStorage, the later requests need it in headers
-    localStg.set('token', loginToken.token);
+    // 1. 存储到本地存储中，后续请求需要在 Header 中携带
+    localStg.set('token', loginToken.access_token);
     localStg.set('refreshToken', loginToken.refreshToken);
 
-    // 2. get user info
+    // 2. 获取用户信息
     const pass = await getUserInfo();
 
     if (pass) {
-      token.value = loginToken.token;
+      token.value = loginToken.access_token;
 
       return true;
     }
@@ -149,8 +152,13 @@ export const useAuthStore = defineStore(SetupStoreId.Auth, () => {
     const { data: info, error } = await fetchGetUserInfo();
 
     if (!error) {
-      // update store
+      // 更新 Store
       Object.assign(userInfo, info);
+
+      // 默认注入 admin 角色以支持路由权限控制
+      if (!userInfo.roles.length) {
+        userInfo.roles = ['admin'];
+      }
 
       return true;
     }

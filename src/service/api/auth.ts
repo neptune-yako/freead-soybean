@@ -1,34 +1,34 @@
-import { request } from '../request';
+import { adminRequest } from '../request';
 
 /**
- * Login
+ * 登录
  *
- * @param userName User name
- * @param password Password
+ * @param username 用户名
+ * @param password 密码
  */
-export function fetchLogin(userName: string, password: string) {
-  return request<Api.Auth.LoginToken>({
+export function fetchLogin(username: string, password: string) {
+  return adminRequest<Api.Auth.LoginToken>({
     url: '/auth/login',
     method: 'post',
     data: {
-      userName,
+      username,
       password
     }
   });
 }
 
-/** Get user info */
+/** 获取用户信息 */
 export function fetchGetUserInfo() {
-  return request<Api.Auth.UserInfo>({ url: '/auth/getUserInfo' });
+  return adminRequest<Api.Auth.UserInfo>({ url: '/auth/me' });
 }
 
 /**
- * Refresh token
+ * 刷新 Token
  *
- * @param refreshToken Refresh token
+ * @param refreshToken 刷新令牌
  */
 export function fetchRefreshToken(refreshToken: string) {
-  return request<Api.Auth.LoginToken>({
+  return adminRequest<Api.Auth.LoginToken>({
     url: '/auth/refreshToken',
     method: 'post',
     data: {
@@ -38,11 +38,11 @@ export function fetchRefreshToken(refreshToken: string) {
 }
 
 /**
- * return custom backend error
+ * 返回自定义后端错误
  *
- * @param code error code
- * @param msg error message
+ * @param code 错误码
+ * @param msg 错误消息
  */
 export function fetchCustomBackendError(code: string, msg: string) {
-  return request({ url: '/auth/error', params: { code, msg } });
+  return adminRequest({ url: '/auth/error', params: { code, msg } });
 }

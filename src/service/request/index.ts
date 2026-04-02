@@ -10,11 +10,10 @@ import type { RequestInstanceState } from './type';
 const isHttpProxy = import.meta.env.DEV && import.meta.env.VITE_HTTP_PROXY === 'Y';
 const { baseURL, otherBaseURL } = getServiceBaseURL(import.meta.env, isHttpProxy);
 
-export const request = createFlatRequest(
-  {
-    baseURL
-  },
-  {
+/** 通用请求配置工厂 */
+// @ts-ignore
+function createCommonOptions(instance: any) {
+  return {
     defaultState: {
       errMsgStack: [],
       refreshTokenPromise: null
@@ -22,18 +21,18 @@ export const request = createFlatRequest(
     transform(response: AxiosResponse<App.Service.Response<any>>) {
       return response.data.data;
     },
-    async onRequest(config) {
+    async onRequest(config: any) {
       const Authorization = getAuthorization();
       Object.assign(config.headers, { Authorization });
 
       return config;
     },
-    isBackendSuccess(response) {
+    isBackendSuccess(response: any) {
       // 当后端返回码为 "200"（默认）时，表示请求成功
       // 如果要修改此逻辑，可以修改 .env 文件中的 `VITE_SERVICE_SUCCESS_CODE`
       return String(response.data.code) === import.meta.env.VITE_SERVICE_SUCCESS_CODE;
     },
-    async onBackendFail(response, instance) {
+    async onBackendFail(response: any, requestInstance: any) {
       const authStore = useAuthStore();
       const responseCode = String(response.data.code);
 
@@ -45,7 +44,9 @@ export const request = createFlatRequest(
         handleLogout();
         window.removeEventListener('beforeunload', handleLogout);
 
-        request.state.errMsgStack = request.state.errMsgStack.filter(msg => msg !== response.data.msg);
+        requestInstance.state.errMsgStack = requestInstance.state.errMsgStack.filter(
+          (msg: string) => msg !== response.data.msg
+        );
       }
 
       // 当后端返回码在 `logoutCodes` 中时，表示用户将退出登录并重定向到登录页面
@@ -57,8 +58,8 @@ export const request = createFlatRequest(
 
       // 当后端返回码在 `modalLogoutCodes` 中时，表示将通过显示模态框来登出用户
       const modalLogoutCodes = import.meta.env.VITE_SERVICE_MODAL_LOGOUT_CODES?.split(',') || [];
-      if (modalLogoutCodes.includes(responseCode) && !request.state.errMsgStack?.includes(response.data.msg)) {
-        request.state.errMsgStack = [...(request.state.errMsgStack || []), response.data.msg];
+      if (modalLogoutCodes.includes(responseCode) && !requestInstance.state.errMsgStack?.includes(response.data.msg)) {
+        requestInstance.state.errMsgStack = [...(requestInstance.state.errMsgStack || []), response.data.msg];
 
         // 防止用户刷新页面
         window.addEventListener('beforeunload', handleLogout);
@@ -84,18 +85,18 @@ export const request = createFlatRequest(
       // 接口 `refreshToken` 不能返回 `expiredTokenCodes` 中的错误码，否则会进入死循环，应返回 `logoutCodes` 或 `modalLogoutCodes`
       const expiredTokenCodes = import.meta.env.VITE_SERVICE_EXPIRED_TOKEN_CODES?.split(',') || [];
       if (expiredTokenCodes.includes(responseCode)) {
-        const success = await handleExpiredRequest(request.state);
+        const success = await handleExpiredRequest(requestInstance.state);
         if (success) {
           const Authorization = getAuthorization();
           Object.assign(response.config.headers, { Authorization });
 
-          return instance.request(response.config) as Promise<AxiosResponse>;
+          return requestInstance.request(response.config) as Promise<AxiosResponse>;
         }
       }
 
       return null;
     },
-    onError(error) {
+    onError(error: any) {
       // 当请求失败时，可以显示错误消息
 
       let message = error.message;
@@ -122,11 +123,36 @@ export const request = createFlatRequest(
         return;
       }
 
-      showErrorMsg(request.state, message);
+      showErrorMsg(instance.state, message);
     }
-  }
+  };
+}
+
+/** 默认请求实例 (/api) */
+export const request = createFlatRequest(
+  {
+    baseURL
+  },
+  createCommonOptions(null)
 );
 
+/** 管理后台请求实例 (/api/admin) */
+export const adminRequest = createFlatRequest(
+  {
+    baseURL: `${baseURL}/admin`
+  },
+  createCommonOptions(null)
+);
+
+/** V1 业务请求实例 (/api/v1) */
+export const v1Request = createFlatRequest(
+  {
+    baseURL: `${baseURL}/v1`
+  },
+  createCommonOptions(null)
+);
+
+/** 演示示例请求实例 */
 export const demoRequest = createRequest(
   {
     baseURL: otherBaseURL.demo

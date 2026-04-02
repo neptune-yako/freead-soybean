@@ -6,15 +6,19 @@ declare namespace Api {
    */
   namespace Auth {
     interface LoginToken {
-      token: string;
-      refreshToken: string;
+      access_token: string;
+      token_type: string;
+      refreshToken: string; // 后续可能扩展的功能
     }
 
     interface UserInfo {
-      userId: string;
-      userName: string;
+      id: number;
+      username: string;
+      full_name: string;
       roles: string[];
       buttons: string[];
+      is_active: boolean;
+      created_at: string;
     }
   }
 }
