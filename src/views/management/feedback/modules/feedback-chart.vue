@@ -64,7 +64,7 @@ const { domRef, updateOptions } = useEcharts(() => ({
         }
       },
       labelLine: { show: false },
-      data: []
+      data: [] as { name: string; value: number }[]
     }
   ]
 }));

@@ -110,9 +110,6 @@ const payloadFields = computed(() => {
       <div v-if="record" class="flex-col gap-16px">
         <NCard :bordered="false" size="small" class="bg-gray-50 dark:bg-gray-800">
           <NDescriptions label-placement="left" :column="1" size="small">
-            <NDescriptionsItem :label="$t('page.management_admin.userNickName')">
-              {{ record.user_nickname }}
-            </NDescriptionsItem>
             <NDescriptionsItem label="User ID">
               <NTag size="small" :bordered="false">{{ record.user_id }}</NTag>
             </NDescriptionsItem>

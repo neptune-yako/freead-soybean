@@ -62,16 +62,10 @@ export function useFeedbackTable(onViewDetail: (row: Api.Feedback.RecordItem) =>
         width: 80
       },
       {
-        key: 'user_nickname',
-        title: $t('page.management_admin.userNickName'),
-        align: 'center',
-        minWidth: 150
-      },
-      {
         key: 'user_id',
         title: 'User ID',
         align: 'center',
-        width: 100
+        width: 120
       },
       {
         key: 'created_at',
