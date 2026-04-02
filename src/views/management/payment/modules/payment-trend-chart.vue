@@ -31,19 +31,20 @@ const { domRef, updateOptions } = useEcharts(() => ({
     }
   },
   legend: {
-    data: [$t('page.management_payment.revenueTrend'), $t('page.management_payment.orderTrend')]
+    data: [$t('page.management_payment.revenueTrend'), $t('page.management_payment.orderTrend')],
+    bottom: 0
   },
   grid: {
     left: '3%',
     right: '4%',
-    bottom: '3%',
+    bottom: 60,
     containLabel: true
   },
   xAxis: [
     {
       type: 'category',
       boundaryGap: false,
-      data: []
+      data: [] as string[]
     }
   ],
   yAxis: [
@@ -52,7 +53,7 @@ const { domRef, updateOptions } = useEcharts(() => ({
       name: $t('page.management_payment.revenueTrend'),
       position: 'left',
       axisLabel: {
-        formatter: '{value} 元'
+        formatter: '{value}'
       }
     },
     {
@@ -60,7 +61,7 @@ const { domRef, updateOptions } = useEcharts(() => ({
       name: $t('page.management_payment.orderTrend'),
       position: 'right',
       axisLabel: {
-        formatter: '{value} 笔'
+        formatter: '{value}'
       },
       splitLine: {
         show: false
@@ -75,12 +76,12 @@ const { domRef, updateOptions } = useEcharts(() => ({
       smooth: true,
       showSymbol: false,
       areaStyle: {
-        opacity: 0.2
+        opacity: 0.1
       },
       emphasis: {
         focus: 'series'
       },
-      data: []
+      data: [] as number[]
     },
     {
       name: $t('page.management_payment.orderTrend'),
@@ -91,7 +92,7 @@ const { domRef, updateOptions } = useEcharts(() => ({
       emphasis: {
         focus: 'series'
       },
-      data: []
+      data: [] as number[]
     }
   ]
 }));
@@ -99,9 +100,13 @@ const { domRef, updateOptions } = useEcharts(() => ({
 /** 同步数据到 ECharts */
 function updateChart() {
   updateOptions(opts => {
-    opts.xAxis[0].data = props.data.dates;
-    opts.series[0].data = props.data.revenues;
-    opts.series[1].data = props.data.orders;
+    if (opts.xAxis && Array.isArray(opts.xAxis)) {
+      (opts.xAxis[0] as any).data = props.data.dates;
+    }
+    if (opts.series && Array.isArray(opts.series)) {
+      (opts.series[0] as any).data = props.data.revenues;
+      (opts.series[1] as any).data = props.data.orders;
+    }
     return opts;
   });
 }

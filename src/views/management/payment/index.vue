@@ -34,7 +34,7 @@ async function handleTriggerPersist() {
           <NStatistic :label="$t('page.management_payment.totalOrders')" :value="stats.totalOrderCount" />
         </NSpace>
         
-        <NPopconfirm @positive-click="handleTriggerPersist" placement="bottom-right">
+        <NPopconfirm @positive-click="handleTriggerPersist" placement="bottom-end">
           <template #trigger>
             <NButton type="primary" :loading="loading">
               <template #icon>
