@@ -29,9 +29,12 @@ declare module "@elegant-router/types" {
     "management_membership": "/management/membership";
     "management_membership_plans": "/management/membership/plans";
     "management_membership_tiers": "/management/membership/tiers";
+    "management_order": "/management/order";
     "management_payment": "/management/payment";
     "management_quota": "/management/quota";
     "management_redeem": "/management/redeem";
+    "management_subscription": "/management/subscription";
+    "management_user": "/management/user";
   };
 
   /**
@@ -96,9 +99,12 @@ declare module "@elegant-router/types" {
     | "management_feedback"
     | "management_membership_plans"
     | "management_membership_tiers"
+    | "management_order"
     | "management_payment"
     | "management_quota"
     | "management_redeem"
+    | "management_subscription"
+    | "management_user"
   >;
 
   /**

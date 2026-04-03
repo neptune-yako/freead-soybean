@@ -131,6 +131,15 @@ export const generatedRoutes: GeneratedRoute[] = [
         ]
       },
       {
+        name: 'management_order',
+        path: '/management/order',
+        component: 'view.management_order',
+        meta: {
+          title: 'management_order',
+          i18nKey: 'route.management_order'
+        }
+      },
+      {
         name: 'management_payment',
         path: '/management/payment',
         component: 'view.management_payment',
@@ -155,6 +164,24 @@ export const generatedRoutes: GeneratedRoute[] = [
         meta: {
           title: 'management_redeem',
           i18nKey: 'route.management_redeem'
+        }
+      },
+      {
+        name: 'management_subscription',
+        path: '/management/subscription',
+        component: 'view.management_subscription',
+        meta: {
+          title: 'management_subscription',
+          i18nKey: 'route.management_subscription'
+        }
+      },
+      {
+        name: 'management_user',
+        path: '/management/user',
+        component: 'view.management_user',
+        meta: {
+          title: 'management_user',
+          i18nKey: 'route.management_user'
         }
       }
     ]

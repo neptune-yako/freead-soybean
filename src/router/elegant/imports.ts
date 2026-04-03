@@ -25,7 +25,10 @@ export const views: Record<LastLevelRouteKey, RouteComponent | (() => Promise<Ro
   management_feedback: () => import("@/views/management/feedback/index.vue"),
   management_membership_plans: () => import("@/views/management/membership/plans/index.vue"),
   management_membership_tiers: () => import("@/views/management/membership/tiers/index.vue"),
+  management_order: () => import("@/views/management/order/index.vue"),
   management_payment: () => import("@/views/management/payment/index.vue"),
   management_quota: () => import("@/views/management/quota/index.vue"),
   management_redeem: () => import("@/views/management/redeem/index.vue"),
+  management_subscription: () => import("@/views/management/subscription/index.vue"),
+  management_user: () => import("@/views/management/user/index.vue"),
 };

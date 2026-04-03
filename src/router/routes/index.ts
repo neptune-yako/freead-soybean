@@ -29,7 +29,19 @@ export function createStaticRoutes() {
         Object.assign(route, { meta: { ...route.meta, roles: ['super_admin', 'operator'] } });
       }
 
-      if (['management_membership', 'management_membership_tiers', 'management_membership_plans', 'management_feedback', 'management_payment', 'management_quota'].includes((route as any).name)) {
+      if ((route as any).name === 'management_user') {
+        Object.assign(route, { meta: { ...route.meta, icon: 'mdi:account-group', order: 10 } });
+      }
+
+      if ((route as any).name === 'management_subscription') {
+        Object.assign(route, { meta: { ...route.meta, icon: 'mdi:history', order: 11 } });
+      }
+
+      if ((route as any).name === 'management_order') {
+        Object.assign(route, { meta: { ...route.meta, icon: 'mdi:cash-register', order: 12 } });
+      }
+
+      if (['management_membership', 'management_membership_tiers', 'management_membership_plans', 'management_feedback', 'management_payment', 'management_quota', 'management_user', 'management_subscription', 'management_order'].includes((route as any).name)) {
         Object.assign(route, { meta: { ...route.meta, roles: ['super_admin', 'operator'] } });
       }
 

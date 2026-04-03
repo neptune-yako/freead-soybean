@@ -245,7 +245,10 @@ const local: App.I18n.Schema = {
     management_membership_plans: 'Membership Plans',
     management_feedback: 'Feedback & Survey',
     management_payment: 'Payment',
-    management_quota: 'Quota'
+    management_quota: 'Quota',
+    management_user: 'User Management',
+    management_subscription: 'Subscription',
+    management_order: 'Order'
   },
   page: {
     login: {

@@ -7,7 +7,7 @@ import { adminRequest } from '../request';
  */
 export function fetchGetSubscriptionList(params?: Api.Subscription.SubscriptionListFilter) {
   return adminRequest<Api.Subscription.SubscriptionPaginationData>({
-    url: '/v1/subscription/list',
+    url: '/subscription/list',
     method: 'get',
     params
   });

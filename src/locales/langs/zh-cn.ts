@@ -241,7 +241,10 @@ const local: App.I18n.Schema = {
     management_membership_plans: '会员套餐',
     management_feedback: '反馈调查',
     management_payment: '财务统计',
-    management_quota: '配额统计'
+    management_quota: '配额统计',
+    management_user: '普通用户',
+    management_subscription: '订阅记录',
+    management_order: '订单支付'
   },
   page: {
     login: {

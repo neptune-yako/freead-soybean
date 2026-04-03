@@ -7,7 +7,7 @@ import { adminRequest } from '../request';
  */
 export function fetchGetOrderList(params?: Api.Order.OrderListFilter) {
   return adminRequest<Api.Order.OrderPaginationData>({
-    url: '/v1/order/list',
+    url: '/order/list',
     method: 'get',
     params
   });
@@ -21,7 +21,7 @@ export function fetchGetOrderList(params?: Api.Order.OrderListFilter) {
  */
 export function fetchGetOrderDetail(order_id: string) {
   return adminRequest<Api.Order.AdminOrderDetail>({
-    url: `/v1/order/${order_id}`,
+    url: `/order/${order_id}`,
     method: 'get'
   });
 }

@@ -7,7 +7,7 @@ import { adminRequest } from '../request';
  */
 export function fetchGetUserList(params?: Api.User.UserListFilter) {
   return adminRequest<Api.User.UserPaginationData>({
-    url: '/v1/user/list',
+    url: '/user/list',
     method: 'get',
     params
   });
@@ -20,7 +20,7 @@ export function fetchGetUserList(params?: Api.User.UserListFilter) {
  */
 export function fetchGetUserDetail(id: number) {
   return adminRequest<Api.User.UserAdminInfo>({
-    url: `/v1/user/${id}`,
+    url: `/user/${id}`,
     method: 'get'
   });
 }

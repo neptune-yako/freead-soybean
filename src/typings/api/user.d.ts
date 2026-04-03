@@ -1,7 +1,7 @@
 declare namespace Api {
   namespace User {
     /** 会员等级枚举 */
-    type MemberLevel = 'free' | 'pro' | 'primeAI';
+    type MemberLevel = 'free' | 'vip' | 'svip';
 
     /** 用户列表查询参数 */
     interface UserListFilter {
