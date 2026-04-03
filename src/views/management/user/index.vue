@@ -9,25 +9,30 @@ defineOptions({
 
 const {
   queryParams,
+  resetQueryParams,
   loading,
   columns,
   columnChecks,
   data,
   pagination,
-  getData
+  getData,
+  getDataByPage
 } = useUserTable();
-
-function reset() {
-  queryParams.nickname = undefined;
-  queryParams.member_level = undefined;
-  getData();
-}
 </script>
 
 <template>
   <div class="flex-col gap-16px min-h-full">
     <!-- 搜索栏 -->
-    <UserSearch :model="queryParams" @reset="reset" @search="getData" />
+    <UserSearch
+      :model="queryParams"
+      @reset="
+        () => {
+          resetQueryParams();
+          getDataByPage(1);
+        }
+      "
+      @search="getDataByPage(1)"
+    />
 
     <!-- 数据表格卡片 -->
     <NCard :border="false" class="card-wrapper shadow-sm flex-1-hidden">

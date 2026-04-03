@@ -135,8 +135,18 @@ export function useUserTable() {
     }
   }
 
+  /** 重置过滤参数 */
+  function resetQueryParams() {
+    Object.assign(queryParams, {
+      page: 1,
+      nickname: undefined,
+      member_level: undefined
+    });
+  }
+
   return {
     queryParams,
+    resetQueryParams,
     data,
     loading,
     columns,
