@@ -10,11 +10,11 @@ declare namespace Api {
       /** 每页数量 */
       size?: number;
       /** 按用户 ID 精确筛选 */
-      user_id?: number;
+      user_id?: number | null;
       /** 会员等级代码 (如 pro, free) */
-      tier_code?: string;
+      tier_code?: string | null;
       /** 状态筛选 */
-      status?: SubscriptionStatus;
+      status?: SubscriptionStatus | null;
     }
 
     /** 订阅管理详情/列表项 (SubscriptionAdminDTO) */

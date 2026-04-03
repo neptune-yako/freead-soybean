@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue';
+import TableHeaderOperation from '@/components/advanced/table-header-operation.vue';
 import { useOrderTable } from './modules/use-order-table';
 import OrderSearch from './modules/order-search.vue';
 import OrderDetailModal from './modules/order-detail-modal.vue';
